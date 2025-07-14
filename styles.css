@@ -9,7 +9,7 @@
   --text-dark: #a8a8a8;
   --background-dark: #181818;
   --max-width: 1400px;
-  --max-width-desktop: 1900px;
+  --max-width-desktop: 4000px;
   --max-width-tablet: 1400px;
 }
 
@@ -43,14 +43,14 @@ nav {
 .nav__content {
   max-width: var(--max-width);
   margin: auto;
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 nav .logo a {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--primary-color);
   transition: 0.3s;
@@ -265,13 +265,18 @@ ul li a:hover {
     margin-left: 25%;
   }
 
-  .titleProjects {
-    margin-left: 33%;
-  }
-
   .contactContainer {
     width: 50%;
     margin-left: 25%;
+  }
+
+  .nav__content {
+    max-width: var(--max-width-desktop);
+    margin: auto;
+    padding: 1rem 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
