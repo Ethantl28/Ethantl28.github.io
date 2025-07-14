@@ -92,9 +92,9 @@ ul li a {
 }
 
 ul li a:hover {
-  border-top-color: var(--secondary-color);
-  border-bottom-color: var(--secondary-color);
-  color: var(--secondary-color);
+  border-top-color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .section {
@@ -167,7 +167,10 @@ ul li a:hover {
 
 .action__btns {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 
 .action__btns button {
@@ -210,6 +213,21 @@ ul li a:hover {
   border-radius: 100%;
 }
 
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto;
+}
+
+.renderVideo {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
 @media screen and (min-width: 751px) and (max-width: 1920px) {
   .currentEducationContent {
     margin-left: 25%;
@@ -230,13 +248,11 @@ ul li a:hover {
   }
 
   .renderContent {
-    margin-left: 20%;
-  }
-
-  .renderVideo {
-    width: 800px;
-    height: 500px;
-    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
   }
 }
 
@@ -256,16 +272,6 @@ ul li a:hover {
   .contactContainer {
     width: 50%;
     margin-left: 25%;
-  }
-
-  .renderContent {
-    margin-left: 20%;
-  }
-
-  .renderVideo {
-    width: 800px;
-    height: 500px;
-    margin-left: 20%;
   }
 }
 
@@ -325,19 +331,6 @@ ul li a:hover {
   .contactContainer {
     width: 100%;
     margin: 0;
-  }
-
-  .renderContent {
-    display: flex;
-    justify-content: center;
-    place-items: center;
-    align-items: center;
-  }
-
-  .renderVideo {
-    width: 400px;
-    height: 250px;
-    margin-left: 5%;
   }
 }
 
@@ -412,15 +405,15 @@ textarea:focus-within {
 
 footer {
   background-color: var(--primary-color);
-  height: 20vh;
+  height: 10vh;
   display: grid;
   justify-content: center;
   place-items: center;
 }
 
 footer img {
-  height: 5rem;
-  width: 5rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 .currentEducationContent {
@@ -467,10 +460,4 @@ footer ul li a {
   color: var(--text-medium);
   font-weight: 600;
   margin-bottom: 2rem;
-}
-
-.renderContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

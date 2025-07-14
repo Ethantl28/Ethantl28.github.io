@@ -1,55 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Render Engine</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
-    <nav>
-        <div class="nav__content">
-          <div class="logo"><a href="index.html">Ethan</a></div>
-          <label for="check" class="checkbox">
-            <i class="ri-menu-line"></i>
-          </label>
-          <input type="checkbox" name="check" id="check" />
-          <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#education">Education</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="index.html#portfolio">Portfolio</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
+  <nav>
+    <div class="nav__content">
+      <div class="logo"><a href="index.html">Ethan</a></div>
+      <label for="check" class="checkbox">
+        <i class="ri-menu-line"></i>
+      </label>
+      <input type="checkbox" name="check" id="check" />
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <section class="section">
-        <div class="section__container">
-            <div class="content">
-                <h1 class="title">Render Engine</h1>
-                <p class="aboutMeText" style="margin-bottom: 2rem;">
-                    I was tasked with making a render engine that created cubes and planes
-                    which were used in a scene with lights.<br>Additionally improving visual 
-                    fidelity by adding normal maps and adding rotation to some of the lights 
-                    and objects in the scene.<br>Completed within a 1 month time frame
-                </p>
+  <section class="section">
+    <div class="contactContainer">
+      <div class="renderContent">
+        <h1 class="contactTitle" style="margin-top: 7rem;">Barebones Render Engine</h1>
+        <p class="aboutMeText">
+          This is the oldest university project in my portfolio, completed during my second year. The goal was to build
+          a renderer from scratch in C++ using OpenGL, starting with minimal boilerplate.<br><br>
 
-                <div class="action__btns">
-                    <a href="https://1drv.ms/u/s!Aq3eTwK02uBfuC01VgHpJXsWMuEd?e=vf7a8z" target="_blank">
-                        <button class="hire__me" type="button">Download Project</button>
-                    </a>
-                </div>
-            </div>
-          <div class="content">
-            <iframe class="renderVideo" src="https://www.youtube.com/embed/nZoMr2MZJIY?si=pUEdrIF0oGVmPsyp" title="YouTube video player" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
+          I experimented with different styles of lighting and implemented features such as dynamic lights and camera
+          controls.
+          At the time, this project marked a significant shift in how I approached larger codebases, and it played
+          a crucial role in my understanding of 3D graphics and engine programming. <br><br>
+
+          Through building this renderer, I learned how objects are drawn on screen, how normals influence lighting, and
+          how to structure a renderer with object-oriented design in mind. I also improved my C++ skills significantly,
+          moving from simpler SFML based projects to a more advanced and custom engine pipeline.<br><br>
+
+          Looking back, there's a lot I would now do differently; better version control with Git, using CMake to manage
+          builds
+          and dependencies, and maybe integrating some physics to test my knowledge of applied mechanics.<br><br>
+
+          Despite its age, this project represents a foundational step in my development as a game programmer.
+          <br><br>
+        </p>
+
+        <h1 class="contactTitle">Features</h1>
+
+        <p class="aboutMeText">
+          • Dynamic Directional Lighting<br>
+          • Dynamic Point Lights<br>
+          • Dynamic Spot Lights<br>
+          • Debug Camera Movement<br><br>
+        </p>
+
+        <h1 class="contactTitle">Controls</h1>
+
+        <p class="aboutMeText">
+          • W / A / S / D - Camera Movement<br>
+          • E / Q - Move camera up / down<br>
+          • R / B / G - Change all objects colours to red / green / blue<br>
+          • T - Change all objects back to original texture<br>
+          • 1 - Toggle normal maps on / off<br>
+          • 1 - Toggle Directional light on / off<br>
+          • 1 - Toggle point lights on / off<br>
+          • 1 - Toggle normal maps on / off<br>
+          • Left Click / Right Click - Toggle spot light on / off<br>
+
+        </p>
+
+        <div class="videoWrapper">
+          <iframe class="renderVideo" src="https://www.youtube.com/embed/nZoMr2MZJIY?si=pUEdrIF0oGVmPsyp"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
-      </section>
-      <footer>
-        <a class="backToTop" href="#home"><img src="images/backToTop.png"></a>
-      </footer>
+
+        <div class="action__btns" style="margin-top: 2rem; margin-bottom: 7rem;">
+          <a href="https://1drv.ms/u/s!Aq3eTwK02uBfuC01VgHpJXsWMuEd?e=vf7a8z" target="_blank">
+            <button class="hire__me" type="button">Download Project</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
+
 </html>
