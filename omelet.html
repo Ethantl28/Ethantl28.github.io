@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rust Maths Library</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <div class="nav__content">
+      <div class="logo"><a href="index.html">Ethan</a></div>
+      <label for="check" class="checkbox">
+        <i class="ri-menu-line"></i>
+      </label>
+      <input type="checkbox" name="check" id="check" />
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="contactContainer">
+      <div class="renderContent">
+        <h1 class="contactTitle" style="margin-top: 7rem;">Omelet</h1>
+        <p class="aboutMeText">
+          Omelet is a Rust based game math library that I started as a personal challenge and learning experience. 
+          After becoming increasingly interested in Rust, I decided that building a math library from scratch would be
+          a great way to deepen my understanding of the language and its ecosystem. I also strongly believe that Rust 
+          is on track to become a widely adopted language in the games industry, especially for systems and engine programming.
+          <br><br>
+        </p>
+
+        <h1 class="contactTitle">Progress So Far</h1>
+        <p class="aboutMeText">
+          The project has had its share of learning curves, particularly around Cargo's structure, linking workflows, and 
+          implementing complex math operations (like 4D transformations). These challenges have pushed me to explore Rust
+          more deeply and refine my development workflow.<br><br>
+
+          To date, I've implemented robust and comprehensive support for 2D, 3D and 4D vectors. The vector API is nearly
+          complete and already backed by an extensive suite of unit tests and documentaiton. SIMD optimisations are the
+          next step for performance enhancement.<br><br>
+
+          Matrix types (Mat2, Mat3, and Mat4) are also implemented with essential functionality, but they currently lack
+          the depth, polish, and documentation that the vectors have. Expanding and refining these matrix types is one 
+          of the project's key next steps. <br><br>
+        </p>
+
+        <h1 class="contactTitle">Vision and Goals</h1>
+        <p class="aboutMeText">
+          The project is now live on GitHub, and I welcome contributions from the community. Once the APIs for both
+          vectors and matrices are stable and well-documented, I plan to publish Omelet on crates.io as a fully
+          open-source Rust crate. <br><br>
+
+          Long-term, I aim to use Omelet as the foundation for building a custom graphics renderer and eventually a 
+          full featured game engine, complete with a physics system. I see this as not only a great way to solidify 
+          my understanding of Rust, but also a way to demonstrate my skills in engine development, graphics programming
+          and low-level systems design.
+
+          <br><br>
+        </p>
+
+        <div class="action__btns" style="margin-top: 2rem; margin-bottom: 7rem;">
+          <a href="https://www.github.com/ethantl28/omelet" target="_blank">
+            <button class="hire__me" type="button">Project Repository</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
