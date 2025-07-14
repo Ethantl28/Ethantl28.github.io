@@ -4,10 +4,10 @@
   --primary-color: #a855f7;
   --primary-color-dark: #9333ea;
   --secondary-color: #ca8a04;
-  --text-dark: #1f2937;
-  --text-medium: #424750;
-  --text-light: #6b7280;
-  --extra-light: #faf5ff;
+  --text-light: #ffffff;
+  --text-medium: #d6d6d6;
+  --text-dark: #a8a8a8;
+  --background-dark: #181818;
   --max-width: 1400px;
   --max-width-desktop: 1900px;
   --max-width-tablet: 1400px;
@@ -36,7 +36,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #ffffff;
+  background-color: #0e0e0e;
   z-index: 99;
 }
 
@@ -55,6 +55,7 @@ nav .logo a {
   color: var(--primary-color);
   transition: 0.3s;
 }
+
 nav .logo a:hover {
   color: var(--primary-color-dark);
 }
@@ -66,6 +67,7 @@ nav .checkbox {
 nav input {
   display: none;
 }
+
 nav .checkbox i {
   font-size: 2rem;
   color: var(--primary-color);
@@ -85,7 +87,7 @@ ul li a {
   border: 2px solid transparent;
   text-decoration: none;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-light);
   transition: 0.3s;
 }
 
@@ -96,7 +98,7 @@ ul li a:hover {
 }
 
 .section {
-  background-color: var(--extra-light);
+  background-color: var(--background-dark);
 }
 
 .section__container {
@@ -115,9 +117,15 @@ ul li a:hover {
   justify-content: center;
 }
 
+.contentPortfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .subtitle {
   letter-spacing: 2px;
-  color: var(--text-light);
+  color: var(--text-dark);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -126,11 +134,19 @@ ul li a:hover {
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 3rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   margin-bottom: 1rem;
 }
 
-.aboutMeText{
+.contactTitle {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.aboutMeText {
   font-size: 1rem;
   letter-spacing: 2px;
   color: var(--text-medium);
@@ -145,7 +161,7 @@ ul li a:hover {
 
 .description {
   line-height: 1.5rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   margin-bottom: 2rem;
 }
 
@@ -194,46 +210,23 @@ ul li a:hover {
   border-radius: 100%;
 }
 
-footer .languageSelection ul li a img {
-  width: 3rem;
-  height: 3rem;
-}
-
 @media screen and (min-width: 751px) and (max-width: 1920px) {
-  /* Styles for screens between 752px and 1200px */
   .currentEducationContent {
     margin-left: 25%;
   }
 
   .titleProjects {
-    margin-left: 33%;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-align: center;
   }
 
   .contactContainer {
     width: 50%;
     margin-left: 25%;
-  }
-
-  .languageSelection {
-    background-color: var(--primary-color);
-    width: 20%;
-    border-radius: 3%;
-  }
-  
-  .languageSelection ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 13%;
-    margin-top: 2%;
-  }
-  
-  .languageSelection ul li a{
-    border: none;
-  }
-
-  footer .languageSelection {
-    display: none;
   }
 
   .renderContent {
@@ -248,7 +241,6 @@ footer .languageSelection ul li a img {
 }
 
 @media screen and (min-width: 1921px) {
-  /* Styles for screens larger than 1200px */
   html {
     font-size: 1.5rem;
   }
@@ -264,28 +256,6 @@ footer .languageSelection ul li a img {
   .contactContainer {
     width: 50%;
     margin-left: 25%;
-  }
-
-  .languageSelection {
-    background-color: var(--primary-color);
-    width: 20%;
-    border-radius: 3%;
-  }
-  
-  .languageSelection ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 13%;
-    margin-top: 2%;
-  }
-  
-  .languageSelection ul li a{
-    border: none;
-  }
-
-  footer .languageSelection {
-    display: none;
   }
 
   .renderContent {
@@ -304,30 +274,20 @@ footer .languageSelection ul li a img {
     display: block;
   }
 
-  .languageSelection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .languageSelection ul {
-    position: absolute;
-  }
-
   ul {
     position: absolute;
     width: 100%;
     height: calc(100vh - 85px);
     left: -100%;
     top: 85px;
-    background-color: var(--extra-light);
+    background-color: var(--background-dark);
     flex-direction: column;
     justify-content: center;
     gap: 3rem;
     transition: left 0.3s;
   }
 
-  nav #check:checked ~ ul {
+  nav #check:checked~ul {
     left: 0;
   }
 
@@ -353,6 +313,7 @@ footer .languageSelection ul li a img {
   textarea {
     width: 100%;
   }
+
   .currentEducationContent {
     margin-left: 0%;
   }
@@ -364,40 +325,6 @@ footer .languageSelection ul li a img {
   .contactContainer {
     width: 100%;
     margin: 0;
-  }
-
-  footer .languageSelection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-  }
-  
-  footer .languageSelection ul {
-    position: static;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    margin-top: 0;
-    background-color: var(--primary-color);
-    height: 1rem;
-    gap: 3rem;
-    margin-right: 12%;
-  }
-  
-  footer .languageSelection ul li {
-    margin: 0 5px; 
-  }
-  
-  footer .languageSelection ul li a {
-    display: block;
-    width: 30px; 
-  }
-
-  footer .languageSelection ul li a img {
-    border-radius: 30%;
   }
 
   .renderContent {
@@ -435,12 +362,7 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
-input:focus-within {
-  outline: none;
-  border-color: var(--primary-color);
-  border-width: 3px;
-}
-
+input:focus-within,
 textarea:focus-within {
   outline: none;
   border-color: var(--primary-color);
@@ -470,7 +392,7 @@ textarea:focus-within {
   align-items: center;
 }
 
-.contactButton{
+.contactButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -488,7 +410,7 @@ textarea:focus-within {
   cursor: pointer;
 }
 
-footer{
+footer {
   background-color: var(--primary-color);
   height: 20vh;
   display: grid;
@@ -496,8 +418,7 @@ footer{
   place-items: center;
 }
 
-footer img
-{
+footer img {
   height: 5rem;
   width: 5rem;
 }
@@ -512,11 +433,11 @@ footer img
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 3rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   margin-bottom: 1rem;
 }
 
-footer ul{
+footer ul {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -528,7 +449,7 @@ footer ul li a {
   padding: 0.5rem 1rem;
   text-decoration: none;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-light);
   border: none;
 }
 
@@ -536,7 +457,7 @@ footer ul li a {
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 3rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   margin-bottom: 1rem;
 }
 
@@ -545,7 +466,6 @@ footer ul li a {
   letter-spacing: 2px;
   color: var(--text-medium);
   font-weight: 600;
-  margin-bottom: 0.5rem;
   margin-bottom: 2rem;
 }
 
