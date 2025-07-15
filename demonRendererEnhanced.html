@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demon Renderer Enhanced</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <div class="nav__content">
+      <div class="logo"><a href="index.html">Ethan</a></div>
+      <label for="check" class="checkbox">
+        <i class="ri-menu-line"></i>
+      </label>
+      <input type="checkbox" name="check" id="check" />
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="contactContainer">
+      <div class="renderContent">
+        <h1 class="contactTitle" style="margin-top: 7rem;">Demon Renderer Enhanced</h1>
+        <p class="aboutMeText">
+          This project started as a minimal OpenGL framework provided by my university, but I quickly
+          turned it into a much more complex renderer by implementing a full suite of modern graphics features.
+          The goal was to explore advanced shader programming, GPU compute, and rendering techniques used in 
+          real-time engines.<br><br>
+
+          Most of the work focused on pushing visual fidelity while learning how to manage GPU resources
+          more efficiently. I built a deferred renderer from scratch, added support for PBR materials,
+          and implemented post-processing effects like depth of field, fog, and edge detection. One of 
+          the more challenging parts was simulating millions of snow particles entirely on the GPU using 
+          compute shaders and SSBOs. <br><br>
+          
+          I also experimented with LOD systems using tessellation and geometry shaders, created procedural 
+          terrain using noise functions, and built a basic lighting system with shadows. The project includes
+          a custom UI with ImGui to tweak settings in real time.<br><br>
+
+          It became a great environment to test ideas and push my understanding of real-time rendering 
+          and graphics programming. This project quickly became one of my favourites.
+          <br><br>
+        </p>
+
+        <h1 class="contactTitle">Features</h1>
+
+        <p class="aboutMeText">
+          • Deferred renderer with shadow mapping
+          • PBR materials
+          • Compute shader snow simulation (~3 million particles)
+          • Tessellation + geometry shader LOD system
+          • Procedural terrain with noise
+          • Post-processing: Depth of field, fog, edge detection, tonemapping, etc
+          • Billboarded trees and seperate skybox pass
+          • ImGui debug UI for live tweaking
+        </p>
+
+        <div class="videoWrapper">
+          <iframe class="renderVideo" src="https://www.youtube.com/embed/KqZfftn9hSE?si=aoX7o6oBkxKM2Q_t"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="action__btns" style="margin-top: 2rem; margin-bottom: 7rem;">
+          <a href="https://github.com/Ethantl28/DemonRendererShaders" target="_blank">
+            <button class="hire__me" type="button">Gitub Repository</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
