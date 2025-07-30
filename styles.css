@@ -7,6 +7,7 @@
   --text-light: #ffffff;
   --text-medium: #d6d6d6;
   --text-dark: #a8a8a8;
+  --background-medium: #1f1f1f;
   --background-dark: #181818;
   --max-width: 1400px;
   --max-width-desktop: 4000px;
@@ -36,7 +37,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #0e0e0e;
+  background-color: var(--background-dark);
   z-index: 99;
 }
 
@@ -98,7 +99,7 @@ ul li a:hover {
 }
 
 .section {
-  background-color: var(--background-dark);
+  background-color: var(--background-medium);
 }
 
 .section__container {
@@ -334,8 +335,9 @@ ul li a:hover {
   }
 
   .contactContainer {
-    width: 100%;
-    margin: 0;
+    padding: 10rem 1rem 5rem 1rem;
+    text-align: center;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -544,4 +546,11 @@ footer ul li a {
 .tag.finished {
   background-color: var(--secondary-color);
   color: #000;
+}
+
+.renderContent img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }

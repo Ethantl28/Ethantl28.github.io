@@ -50,16 +50,45 @@
           complete and already backed by an extensive suite of unit tests and documentaiton. SIMD optimisations are the
           next step for performance enhancement.<br><br>
 
-          Matrix types (Mat2, Mat3, and Mat4) are also implemented with essential functionality, but they currently lack
-          the depth, polish, and documentation that the vectors have. Expanding and refining these matrix types is one 
-          of the project's key next steps. <br><br>
+          Matrix types are now implemented with comprehensive support for 2x2, 3x3, and 4x4 matrices. Each matrix type
+          has it's own unique testing quite testing all edge cases, and all matrix types have extensive documentation.
+          SIMD optimisations again are the next step for performance enhancement. <br><br>
+
+          The most recent addition to the library, is quaternions. These took some time for me to get my head around,
+          but as soon as I understood the core concepts, I quickly implemented all of the functionality I would need.
+          Quat's have extensive unit testing and full documentation, just like the previous types. <br> <br>
         </p>
+
+        <h1 class="contactTitle">Images</h1>
+        <p class="aboutMeText">
+          One of the most fun parts of the entire project, was making the README.md. I found this to be very relaxing
+          and interesting to look at other readMe's and compare them against mine. Something I don't have on the read me,
+          as it is not required for a maths library, are images. So here I will show some of the code that went into making
+          this library.
+          <br><br>
+        </p>
+
+        <div >
+          <h1 class="title">Triple Product 4D Function</h1>
+          <img src="images/triple_product_4d.png" alt="Triple Product 4D Function">
+          <br><br>
+
+          <h1 class="title">Indexing Into a 3x3 Matrix</h1>
+          <img src="images/indexing_mat3.png" alt="Indexing into and out of Mat3">
+          <br><br>
+
+          <h1 class="title">Function for Adjugating a 4x4 Matrix</h1>
+          <img src="images/adjugate_mat4.png" alt="Adjugating a 4x4 Matrix Function">
+          <br><br>
+        </div>
 
         <h1 class="contactTitle">Vision and Goals</h1>
         <p class="aboutMeText">
-          The project is now live on GitHub, and I welcome contributions from the community. Once the APIs for both
-          vectors and matrices are stable and well-documented, I plan to publish Omelet on crates.io as a fully
-          open-source Rust crate. <br><br>
+          The project is now lives on <a href="https://crates.io">crates.io</a>.
+          There were some struggles getting the library published. Mainly with `cargo clippy` and formatting. 
+          When I ran `cargo clippy`, I found there were 100s of errors from me not fully understanding correct
+          formatting and idiomatic Rust. Going through and fixing these errors and warnings really helped me understand
+          what data-oriented and idiomatic Rust were all about.
 
           Long-term, I aim to use Omelet as the foundation for building a custom graphics renderer and eventually a 
           full featured game engine, complete with a physics system. I see this as not only a great way to solidify 
@@ -71,7 +100,10 @@
 
         <div class="action__btns" style="margin-top: 2rem; margin-bottom: 7rem;">
           <a href="https://www.github.com/ethantl28/omelet" target="_blank">
-            <button class="hire__me" type="button">Project Repository</button>
+            <button class="hire__me" type="button">GitHub Repository</button>
+          </a>
+          <a href="https://crates.io/crates/omelet" target ="_blank">
+            <button class="hire__me" type="button">Crates.io Publication</button>
           </a>
         </div>
       </div>
