@@ -66,8 +66,11 @@
             <img src="/images/rust-logo.png" alt="Scrambled Egg Engine" class="rust-logo">
             <div class="card-content">
               <h3>Rust Maths Library (Omelet)</h3>
-              <p>A maths library in Rust, planned to be released as a standalone crate.</p>
-              <span class="tag yellow">In Progress</span>
+              <p>A maths library in Rust, released as a standalone crate.</p>
+              <span class="tag yellow">June 2025 - August 2025</span>
+              <p id="omelet-downloads" style="font-size: 0.9rem; margin-top: 5px; color: gray;">
+                Fetching downloads...
+              </p>
             </div>
           </a>
 
@@ -234,6 +237,26 @@
         });
       });
     });
+
+    // Fetch Rust Omelet crate downloads
+    async function fetchOmeletDownloads() {
+      try {
+        const response = await fetch("https://crates.io/api/v1/crates/omelet");
+        if (!response.ok) throw new Error("Failed to fetch crate info");
+
+        const data = await response.json();
+        const downloads = data.crate.downloads.toLocaleString();
+        document.getElementById("omelet-downloads").textContent =
+          `Downloads: ${downloads}`;
+      } catch (error) {
+        document.getElementById("omelet-downloads").textContent =
+          "Downloads: unavailable";
+        console.error(error);
+      }
+    }
+
+    fetchOmeletDownloads();
+
   </script>
 </body>
 
