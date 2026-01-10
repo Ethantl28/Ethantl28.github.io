@@ -28,10 +28,11 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
-      <a href="/downloads/EthanTudor-Lloyd_CV.pdf" target="_blank">
-        <button class="cv_download" type="button">Download CV</button>
-      </a>
+      <div class="cv-wrapper">
+        <a href="/downloads/EthanTudor-Lloyd_CV.pdf" target="_blank">
+          <button class="cv_download" type="button">Download CV</button>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -113,34 +114,37 @@
   </section>
 
   <section class="section" id="education">
-    <div class="section__container">
-      <div class="content">
-        <h1 class="currentEducation">City of Wolverhampton College</h1>
-        <p class="subtitle">
-          September 2019 - July 2021<br>
-        </p>
-        <p class="aboutMeText">
-          Level 3 Extended Diploma Games Design - Distinction
-        </p>
-        <h1 style="margin-top: 10%;" class="currentEducation">Our Lady and St Chads Catholic Academy</h1>
-        <p class="subtitle">
-          September 2014 - July 2019<br>
-        </p>
-        <p class="aboutMeText">
-          10 GCSEs - Grades 4-7
-        </p>
-      </div>
-      <div class="currentEducationContent">
-        <h1 class="currentEducation">De Montfort University</h1>
-        <p class="subtitle">
-          September 2021 - July 2025<br>
-        </p>
-        <p class="aboutMeText">
-          BSc (Hons) Computer Games Programming, First Class Honours
-        </p>
+    <div class="section__container education-container">
+
+      <h1 class="currentEducation education-title">Education</h1>
+
+      <div class="education-grid">
+
+        <div class="education-card featured">
+          <h3>De Montfort University</h3>
+          <span class="education-date">Sep 2021 – Jul 2025</span>
+          <p>BSc (Hons) Computer Games Programming</p>
+          <span class="education-grade">First Class Honours</span>
+        </div>
+
+        <div class="education-card">
+          <h3>City of Wolverhampton College</h3>
+          <span class="education-date">Sep 2019 – Jul 2021</span>
+          <p>Level 3 Extended Diploma – Games Design</p>
+          <span class="education-grade">Distinction</span>
+        </div>
+
+        <div class="education-card">
+          <h3>Our Lady & St Chad’s Catholic Academy</h3>
+          <span class="education-date">Sep 2014 – Jul 2019</span>
+          <p>10 GCSEs</p>
+          <span class="education-grade">Grades 4–7</span>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <section class="section" id="experience">
     <div class="section__container experience-container">

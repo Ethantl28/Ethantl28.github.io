@@ -9,7 +9,7 @@
     --text-dark: #a8a8a8;
     --background-medium: #1f1f1f;
     --background-dark: #181818;
-    --max-width: 1400px;
+    --max-width: 50rem;
     --max-width-desktop: 4000px;
     --max-width-tablet: 1400px;
   }
@@ -356,23 +356,11 @@
 
   .project-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 1rem;
     max-width: var(--max-width);
     margin: 0 auto;
-  }
-
-  @media (min-width: 640px) {
-    .project-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .project-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 
   .project-card {
@@ -384,6 +372,7 @@
     overflow: hidden;
     text-decoration: none;
     color: inherit;
+    border-left: 4px solid var(--primary-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
@@ -394,8 +383,9 @@
 
   .project-card img {
     width: 100%;
-    height: 40%;
+    height: 200px;
     object-fit: cover;
+    display: block;
     background: #333;
   }
 
@@ -610,6 +600,7 @@
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border-left: 4px solid var(--primary-color);
   }
 
   .contactCard i {
@@ -648,6 +639,67 @@
     display: none;
   }
 
+  /* EDUCATION */
+  .education-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-title {
+    margin-bottom: 2rem;
+  }
+
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .education-card {
+    background: #222;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .education-card h3 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .education-date {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+  }
+
+  .education-card p {
+    margin-top: 0.75rem;
+    color: var(--text-medium);
+    font-weight: 500;
+  }
+
+  .education-grade {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(168, 85, 247, 0.15);
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  /* Highlight university */
+  .education-card.featured {
+    border-left-color: var(--primary-color);
+  }
+
+
   @media screen and (min-width: 971px) and (max-width: 1920px) {
     .currentEducationContent {
       margin-left: 25%;
@@ -673,6 +725,15 @@
       align-items: center;
       text-align: center;
       max-width: 800px;
+    }
+
+    .project-grid {
+      gap: 2.5rem;
+      padding: 2rem;
+    }
+
+    .project-card .card-content {
+      padding: 1rem;
     }
   }
 
