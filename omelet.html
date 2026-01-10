@@ -12,11 +12,12 @@
 <body>
   <nav>
     <div class="nav__content">
-      <div class="logo"><a href="index.html">Ethan</a></div>
-      <label for="check" class="checkbox">
-        <i class="ri-menu-line"></i>
-      </label>
-      <input type="checkbox" name="check" id="check" />
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-full">Ethan Tudor-Lloyd</span>
+          <span class="logo-short">Ethan</span>
+        </a>
+      </div>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#portfolio">Portfolio</a></li>
@@ -25,6 +26,11 @@
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
+      <div class="cv-wrapper">
+        <a href="/downloads/EthanTudor-Lloyd_CV.pdf" target="_blank">
+          <button class="cv_download" type="button">Download CV</button>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -33,17 +39,20 @@
       <div class="renderContent">
         <h1 class="contactTitle" style="margin-top: 7rem;">Omelet</h1>
         <p class="aboutMeText">
-          Omelet is a Rust based game math library that I started as a personal challenge and learning experience. 
+          Omelet is a Rust based game math library that I started as a personal challenge and learning experience.
           After becoming increasingly interested in Rust, I decided that building a math library from scratch would be
-          a great way to deepen my understanding of the language and its ecosystem. I also strongly believe that Rust 
-          is on track to become a widely adopted language in the games industry, especially for systems and engine programming.
+          a great way to deepen my understanding of the language and its ecosystem. I also strongly believe that Rust
+          is on track to become a widely adopted language in the games industry, especially for systems and engine
+          programming.
           <br><br>
         </p>
 
         <h1 class="contactTitle">Progress So Far</h1>
         <p class="aboutMeText">
-          The project has had its share of learning curves, particularly around Cargo's structure, linking workflows, and 
-          implementing complex math operations (like 4D transformations). These challenges have pushed me to explore Rust
+          The project has had its share of learning curves, particularly around Cargo's structure, linking workflows,
+          and
+          implementing complex math operations (like 4D transformations). These challenges have pushed me to explore
+          Rust
           more deeply and refine my development workflow.<br><br>
 
           To date, I've implemented robust and comprehensive support for 2D, 3D and 4D vectors. The vector API is nearly
@@ -62,13 +71,15 @@
         <h1 class="contactTitle">Images</h1>
         <p class="aboutMeText">
           One of the most fun parts of the entire project, was making the README.md. I found this to be very relaxing
-          and interesting to look at other readMe's and compare them against mine. Something I don't have on the read me,
-          as it is not required for a maths library, are images. So here I will show some of the code that went into making
+          and interesting to look at other readMe's and compare them against mine. Something I don't have on the read
+          me,
+          as it is not required for a maths library, are images. So here I will show some of the code that went into
+          making
           this library.
           <br><br>
         </p>
 
-        <div >
+        <div>
           <h1 class="title">Triple Product 4D Function</h1>
           <img src="images/triple_product_4d.png" alt="Triple Product 4D Function">
           <br><br>
@@ -85,13 +96,13 @@
         <h1 class="contactTitle">Vision and Goals</h1>
         <p class="aboutMeText">
           The project is now lives on <a href="https://crates.io">crates.io</a>.
-          There were some struggles getting the library published. Mainly with `cargo clippy` and formatting. 
+          There were some struggles getting the library published. Mainly with `cargo clippy` and formatting.
           When I ran `cargo clippy`, I found there were 100s of errors from me not fully understanding correct
           formatting and idiomatic Rust. Going through and fixing these errors and warnings really helped me understand
           what data-oriented and idiomatic Rust were all about.
 
-          Long-term, I aim to use Omelet as the foundation for building a custom graphics renderer and eventually a 
-          full featured game engine, complete with a physics system. I see this as not only a great way to solidify 
+          Long-term, I aim to use Omelet as the foundation for building a custom graphics renderer and eventually a
+          full featured game engine, complete with a physics system. I see this as not only a great way to solidify
           my understanding of Rust, but also a way to demonstrate my skills in engine development, graphics programming
           and low-level systems design.
 
@@ -102,7 +113,7 @@
           <a href="https://www.github.com/ethantl28/omelet" target="_blank">
             <button class="hire__me" type="button">GitHub Repository</button>
           </a>
-          <a href="https://crates.io/crates/omelet" target ="_blank">
+          <a href="https://crates.io/crates/omelet" target="_blank">
             <button class="hire__me" type="button">Crates.io Publication</button>
           </a>
         </div>

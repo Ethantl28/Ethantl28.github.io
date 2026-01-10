@@ -12,11 +12,12 @@
 <body>
   <nav>
     <div class="nav__content">
-      <div class="logo"><a href="index.html">Ethan</a></div>
-      <label for="check" class="checkbox">
-        <i class="ri-menu-line"></i>
-      </label>
-      <input type="checkbox" name="check" id="check" />
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-full">Ethan Tudor-Lloyd</span>
+          <span class="logo-short">Ethan</span>
+        </a>
+      </div>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#portfolio">Portfolio</a></li>
@@ -25,6 +26,11 @@
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
+      <div class="cv-wrapper">
+        <a href="/downloads/EthanTudor-Lloyd_CV.pdf" target="_blank">
+          <button class="cv_download" type="button">Download CV</button>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -35,20 +41,20 @@
         <p class="aboutMeText">
           This project started as a minimal OpenGL framework provided by my university, but I quickly
           turned it into a much more complex renderer by implementing a full suite of modern graphics features.
-          The goal was to explore advanced shader programming, GPU compute, and rendering techniques used in 
+          The goal was to explore advanced shader programming, GPU compute, and rendering techniques used in
           real-time engines.<br><br>
 
           Most of the work focused on pushing visual fidelity while learning how to manage GPU resources
           more efficiently. I built a deferred renderer from scratch, added support for PBR materials,
-          and implemented post-processing effects like depth of field, fog, and edge detection. One of 
-          the more challenging parts was simulating millions of snow particles entirely on the GPU using 
+          and implemented post-processing effects like depth of field, fog, and edge detection. One of
+          the more challenging parts was simulating millions of snow particles entirely on the GPU using
           compute shaders and SSBOs. <br><br>
-          
-          I also experimented with LOD systems using tessellation and geometry shaders, created procedural 
+
+          I also experimented with LOD systems using tessellation and geometry shaders, created procedural
           terrain using noise functions, and built a basic lighting system with shadows. The project includes
           a custom UI with ImGui to tweak settings in real time.<br><br>
 
-          It became a great environment to test ideas and push my understanding of real-time rendering 
+          It became a great environment to test ideas and push my understanding of real-time rendering
           and graphics programming. This project quickly became one of my favourites.
           <br><br>
         </p>
