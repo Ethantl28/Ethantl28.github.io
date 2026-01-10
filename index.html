@@ -14,11 +14,12 @@
 <body>
   <nav>
     <div class="nav__content">
-      <div class="logo"><a href="index.html">Ethan</a></div>
-      <label for="check" class="checkbox">
-        <i class="ri-menu-line"></i>
-      </label>
-      <input type="checkbox" name="check" id="check" />
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-full">Ethan Tudor-Lloyd</span>
+          <span class="logo-short">Ethan</span>
+        </a>
+      </div>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
@@ -27,6 +28,10 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
+      <a href="/downloads/EthanTudor-Lloyd_CV.pdf" target="_blank">
+        <button class="cv_download" type="button">Download CV</button>
+      </a>
     </div>
   </nav>
 
@@ -92,7 +97,7 @@
             </div>
           </a>
 
-          
+
           <a href="https://github.com/ethantl28" class="project-card">
             <img src="/images/githubProfile.png" alt="Github Profile">
             <div class="card-content">
@@ -110,19 +115,19 @@
   <section class="section" id="education">
     <div class="section__container">
       <div class="content">
-        <h1 class="title">Our Lady and St Chads Catholic Academy</h1>
-        <p class="subtitle">
-          September 2014 - July 2019<br>
-        </p>
-        <p class="aboutMeText">
-          10 GCSEs - Grades 4-7
-        </p>
-        <h1 style="margin-top: 10%;" class="title">City of Wolverhampton College</h1>
+        <h1 class="currentEducation">City of Wolverhampton College</h1>
         <p class="subtitle">
           September 2019 - July 2021<br>
         </p>
         <p class="aboutMeText">
           Level 3 Extended Diploma Games Design - Distinction
+        </p>
+        <h1 style="margin-top: 10%;" class="currentEducation">Our Lady and St Chads Catholic Academy</h1>
+        <p class="subtitle">
+          September 2014 - July 2019<br>
+        </p>
+        <p class="aboutMeText">
+          10 GCSEs - Grades 4-7
         </p>
       </div>
       <div class="currentEducationContent">
@@ -138,48 +143,72 @@
   </section>
 
   <section class="section" id="experience">
-    <div class="section__container">
-      <div class="content">
-        <h1 class="title">Hollywood Bowl - Diner Assistant</h1>
-        <p class="subtitle">
-          August 2019 - August 2021<br>
-          Wolverhampton
-        </p>
-        <p class="aboutMeText">
-          • Working quickly and efficiently with colleagues to process food orders within the maximum 20 minute time
-          slot whilst meeting the specification.<br>
-          • Maintaining hygiene standards in the kitchen such as by deep cleaning grills and fryers.<br>
-          • Serving food orders and working behind the bar when required.<br>
-          • Using the till and serving customers.
-        </p>
-        <h1 style="margin-top: 10%;" class="title">TGI Fridays</h1>
-        <p class="subtitle">
-          August 2023 - December 2023<br>
-        </p>
-        <p class="aboutMeText">
-          • Worked collaboratively as part of a fast-paced kitchen team, managing a specific station on the line.<br>
-          • Supported colleagues across other sections when needed, maintaining flexibility and team efficiency.<br>
-          • Communicated clearly to coordinate timings and ensure all components of an order were prepared and plated
-          simultaneously.
-        </p>
-      </div>
-      <div class="currentEducationContent">
-        <h1 class="currentEducation">Educational Game Developer</h1>
-        <p class="subtitle">
-          October 2024 - March 2025<br>
-        </p>
-        <p class="aboutMeText">
-          (NDA protected - details limited by confidentiality agreement)<br>
-          • Collaborated on a Unity-based mobile game targeted at children, designed to support learning outcomes
-          through interactive minigames.<br>
-          • Expanded pre-existing codebase with substantial new features and gameplay systems.<br>
-          • Rebuilt the UI system for better navigation, accessibility, and mobile optimization.<br>
-          • Delivered content and technical improvements independently, using agile principles, Git-based version
-          control, and structured documentation practices.
-        </p>
-      </div>
+    <div class="section__container experience-container">
+
+      <details class="experience-card">
+        <summary>
+          <div class="exp-header">
+            <h3 class="exp-title">Sales Administrator<span class="chevron">▸</span></h3>
+            <span class="company">Oaklands Plastics</span>
+            <span class="date">Aug 2025 - Dec 2025</span>
+          </div>
+        </summary>
+        <ul>
+          <li>Produced accurate quotations using customer-specific pricing and logistics data.</li>
+          <li>Coordinated with internal teams to confirm lead times and delivery feasibility.</li>
+          <li>Re-engaged dormant accounts via targeted email and phone outreach.</li>
+        </ul>
+      </details>
+
+      <details class="experience-card" open>
+        <summary>
+          <div class="exp-header">
+            <h3 class="exp-title">Educational Game Developer<span class="chevron">▸</span></h3>
+            <span class="company">De Montfort University</span>
+            <span class="date">Oct 2024 - Mar 2025</span>
+          </div>
+        </summary>
+        <ul>
+          <li>Collaborated on a Unity-based educational mobile game for children.</li>
+          <li>Expanded a pre-existing codebase with new gameplay systems.</li>
+          <li>Rebuilt UI for improved navigation, accessibility, and mobile optimisation.</li>
+          <li>Worked independently using Git, agile practices, and structured documentation.</li>
+        </ul>
+      </details>
+
+      <details class="experience-card">
+        <summary>
+          <div class="exp-header">
+            <h3 class="exp-title">Chef<span class="chevron">▸</span></h3>
+            <span class="company">TGI Fridays</span>
+            <span class="date">Aug 2023 - Dec 2023</span>
+          </div>
+        </summary>
+        <ul>
+          <li>Worked in a fast-paced kitchen environment managing a dedicated line station.</li>
+          <li>Maintained clear communication to synchronise preparation and plating.</li>
+          <li>Supported other stations to maintain team efficiency.</li>
+        </ul>
+      </details>
+
+      <details class="experience-card">
+        <summary>
+          <div class="exp-header">
+            <h3 class="exp-title">Diner Assistant<span class="chevron">▸</span></h3>
+            <span class="company">Hollywood Bowl</span>
+            <span class="date">Aug 2019 - Aug 2021</span>
+          </div>
+        </summary>
+        <ul>
+          <li>Prepared and served food under strict time and hygiene constraints.</li>
+          <li>Worked across kitchen, bar, and customer-facing roles.</li>
+          <li>Handled tills and customer service responsibilities.</li>
+        </ul>
+      </details>
+
     </div>
   </section>
+
 
   <section class="section" id="about">
     <div class="section__container">
@@ -203,48 +232,37 @@
 
   <section class="section" id="contact">
     <div class="contactContainer">
-      <h1 style="margin-bottom: 5%;"><a class="contactTitle" href="mailto::ethantl28@outlook.com">Email</h1></a>
-      <a class="aboutMeText" style="margin-bottom: 5%;" href="mailto::ethantl28@outlook.com">ethantl28@outlook.com</a>
-      <h1 style="margin-bottom: 5%;"><a class="contactTitle"
-          href="https://www.linkedin.com/in/ethan-tudor-lloyd-5165b31b3/">LinkedIn<h1></a>
-        <a class="aboutMeText" href="https://www.linkedin.com/in/ethan-tudor-lloyd-5165b31b3/">Ethan Tudor-Lloyd</a>
+
+      <h1 class="contactHeading">Get in touch</h1>
+
+      <div class="contactCards">
+
+        <a class="contactCard email" href="mailto:ethantl28@outlook.com">
+          <i class="ri-mail-line"></i>
+          <div class="contactText">
+            <span class="contactLabel">Email</span>
+            <span class="contactValue">ethantl28@outlook.com</span>
+          </div>
+        </a>
+
+        <a class="contactCard linkedin" href="https://www.linkedin.com/in/ethan-tudor-lloyd-5165b31b3/" target="_blank">
+          <i class="ri-linkedin-box-line"></i>
+          <div class="contactText">
+            <span class="contactLabel">LinkedIn</span>
+            <span class="contactValue">Ethan Tudor-Lloyd</span>
+          </div>
+        </a>
+
+      </div>
+
     </div>
   </section>
+
 
   <footer>
     <a class="backToTop" href="#home"><img src="images/backToTop.png"></a>
   </footer>
   <script>
-    const root = document.documentElement;
-
-    function updateMaxWidth() {
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 751 && screenWidth <= 1920) {
-        root.style.setProperty('--max-width', '1400px');
-      } else if (screenWidth > 1920) {
-        root.style.setProperty('--max-width', '1900px');
-      } else if (screenWidth > 2560) {
-        root.style.setProperty('--max-width', '2400px');
-      }
-    }
-
-    // Initial update on page load
-    updateMaxWidth();
-
-    // Add an event listener for window resize
-    window.addEventListener('resize', updateMaxWidth);
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var checkbox = document.getElementById('check');
-      var navLinks = document.querySelectorAll('ul li a');
-
-      navLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-          checkbox.checked = false;
-        });
-      });
-    });
 
     // Fetch Rust Omelet crate downloads
     async function fetchOmeletDownloads() {
