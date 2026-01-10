@@ -42,9 +42,9 @@
   }
 
   .nav__content {
-    max-width: var(--max-width);
+    max-width: var(--max-width-desktop);
     margin: auto;
-    padding: 1rem 1rem;
+    padding: 1rem 10rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -549,7 +549,7 @@
     top: 0.2rem;
     bottom: 0.2rem;
     width: 2px;
-    background-color: rgba(168, 85, 247, 0.4);
+    background-color: var(--primary-color);
     border-radius: 1px;
   }
 
@@ -652,7 +652,7 @@
 
   .education-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.75rem;
     width: 100%;
     max-width: 900px;
@@ -699,45 +699,7 @@
     border-left-color: var(--primary-color);
   }
 
-
-  @media screen and (min-width: 971px) and (max-width: 1920px) {
-    .currentEducationContent {
-      margin-left: 25%;
-    }
-
-    .titleProjects {
-      font-size: 2.5rem;
-      font-weight: 400;
-      line-height: 3rem;
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .contactContainer {
-      width: 50%;
-      margin-left: 25%;
-    }
-
-    .renderContent {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      max-width: 800px;
-    }
-
-    .project-grid {
-      gap: 2.5rem;
-      padding: 2rem;
-    }
-
-    .project-card .card-content {
-      padding: 1rem;
-    }
-  }
-
-  @media screen and (min-width: 1921px) {
+  @media screen and (min-width: 2000px) {
     html {
       font-size: 1.5rem;
     }
@@ -761,7 +723,7 @@
     }
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1600px) {
     .logo-full {
       display: none;
     }
@@ -769,9 +731,13 @@
     .logo-short {
       display: inline;
     }
+
+    .project-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
-  @media (max-width: 970px) {
+  @media (max-width: 1080px) {
 
     html,
     body {
@@ -832,28 +798,32 @@
       margin-left: 0;
     }
 
+    .project-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     .contactContainer {
       padding: 10rem 1rem 5rem 1rem;
       text-align: center;
       grid-template-columns: repeat(1, 1fr);
     }
 
-    /* 2. Details card must NEVER exceed viewport */
     .experience-card {
       width: 100%;
       max-width: 100%;
       padding: 0.9rem;
-      overflow: hidden;
+      overflow: visible;
     }
 
-    /* 3. Summary must not add width */
+    .experience-card[open] ul {
+      max-height: none;
+    }
+
     .experience-card summary {
-      padding: 0;
-      margin: 0;
+      padding: 0.75rem 1rem;
       width: 100%;
     }
 
-    /* 4. Header must be simple vertical flow */
     .exp-header {
       display: flex;
       flex-direction: column;
@@ -862,7 +832,6 @@
       width: 100%;
     }
 
-    /* 5. Title MUST wrap and never push sideways */
     .exp-title {
       display: inline-flex;
       align-items: center;
@@ -875,13 +844,11 @@
       overflow-wrap: break-word;
     }
 
-    /* 6. Chevron inline, no floating, no pushing */
     .chevron {
       font-size: 1.2rem;
       flex-shrink: 0;
     }
 
-    /* 7. Meta text safe sizing */
     .company,
     .date {
       font-size: 0.8rem;
@@ -890,20 +857,28 @@
       overflow-wrap: break-word;
     }
 
-    /* 8. Bullet list CANNOT overflow */
     .experience-card ul {
-      margin: 0.75rem 0 0 0;
+      max-height: none;
+      overflow: visible;
+      margin-top: 0.75rem;
       padding-left: 0;
-      max-width: 100%;
-      overflow: hidden;
+      display: block;
     }
 
     .experience-card li {
-      max-width: 100%;
-      overflow-wrap: break-word;
+      display: block;
+      width: 100%;
+      line-height: 1.45;
     }
 
-    /* 9. Nuclear option — stop rogue children */
+    .experience-card li::before {
+      top: 0.6rem;
+      bottom: auto;
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+    }
+
     .experience-card * {
       max-width: 100%;
       box-sizing: border-box;
