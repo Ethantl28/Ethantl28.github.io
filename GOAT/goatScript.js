@@ -288,12 +288,12 @@ async function skipBoot()
 
 document.addEventListener("DOMContentLoaded", () =>
 {
-    skipBoot();
-    // document
-    //     .getElementById("launch-screen")
-    //     .addEventListener("click", startSystem, {once: true});
+    // skipBoot();
+    document
+        .getElementById("launch-screen")
+        .addEventListener("click", startSystem, {once: true});
 
-    // document
-    //     .getElementById("launch-screen")
-    //     .addEventListener("touchStart", startSystem, {once: true});
+    document
+        .getElementById("launch-screen")
+        .addEventListener("touchStart", startSystem, {once: true});
 })
