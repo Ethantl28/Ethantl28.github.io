@@ -461,7 +461,7 @@ async function skipBoot()
 
 document.addEventListener("DOMContentLoaded", () =>
 {
-    if (true)
+    if (false)
     {
         skipBoot();
     }
