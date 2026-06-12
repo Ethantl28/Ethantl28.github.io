@@ -14,21 +14,22 @@
 </head>
 
 <body>
-    <div class="glitch-line"></div>
-
-    <div id="launch-screen">
-        <p class="launch-text">TAP TO INITIALISE<br><br>(VOLUME UP)</p>
-    </div>
-
-    <div id="boot-screen" style="display: none;">
-        <div id="boot-output"></div>
-    </div>
-
-    <div id="terminal-title" class="title-content" style="display: none;">
-        <p class="goat-title">G.O.A.T</p>
-        <p class="subtitle">GOVERNMENT OPERATIONAL ACCESS TERMINAL</p>
-
-    <pre class="seal">
+    <div id="crt-screen">
+        <div class="glitch-line"></div>
+    
+        <div id="launch-screen">
+            <p class="launch-text">TAP TO INITIALISE<br><br>(VOLUME UP)</p>
+        </div>
+    
+        <div id="boot-screen" style="display: none;">
+            <div id="boot-output"></div>
+        </div>
+    
+        <div id="terminal-title" class="title-content" style="display: none;">
+            <p class="goat-title">G.O.A.T</p>
+            <p class="subtitle">GOVERNMENT OPERATIONAL ACCESS TERMINAL</p>
+    
+        <pre class="seal">
 +----------------------------------+
 |    GOVERNMENT RESEARCH UNIT      |
 |                                  |
@@ -37,25 +38,36 @@
 |                                  |
 |           25/07/2026             |
 +----------------------------------+
-    </pre>
+        </pre>
+        
+        </div>
     
+        <div id="terminal-content" class="body-content" style="display: none;">
+    
+            <div id="terminal-output"></div>
+    
+            <div class="terminal-input-row">
+                <span>></span>
+                <input
+                    id="terminal-input"
+                    type="text"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+            </div>
+    
+        </div>
     </div>
 
-    <div id="terminal-content" class="body-content" style="display: none;">
+    <div id="file-viewer" style="display: none;">
 
-        <div id="terminal-output"></div>
-
-        <div class="terminal-input-row">
-            <span>></span>
-            <input
-                id="terminal-input"
-                type="text"
-                autocomplete="off"
-                spellcheck="false"
-            >
+        <div id="file-viewer-header">
+            <span id="file-name"></span>
+            <button id="close-file">X</button>
         </div>
 
-    </div>
+        <iframe id="file-frame"></iframe>
 
+    </div>
 
 </body>
