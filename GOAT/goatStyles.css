@@ -183,6 +183,7 @@ body::after
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 .terminal-input-row span,
@@ -262,4 +263,50 @@ body::after
     background-color: white;
 
     opacity: 1 !important;
+}
+
+.file-button
+{
+    display: block;
+
+    width: 100%;
+
+    background: transparent;
+    border: none;
+
+    color: #0f0;
+
+    font-family: glassyFont;
+    font-size: 1rem;
+
+    text-align: left;
+    padding: 0.4rem 1rem;
+
+    cursor: pointer;
+
+    transition: 
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.file-button:hover
+{
+    background-color: rgba(0, 255, 0, 0.15);
+}
+
+.file-button:focus
+{
+    outline: none;
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+.file-button::before
+{
+    content: "> ";
+}
+
+.file-button.locked
+{
+    color: #044804;
+    cursor: not-allowed;
 }

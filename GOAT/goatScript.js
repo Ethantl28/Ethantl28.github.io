@@ -11,137 +11,66 @@ const bootLines =
     "G.O.A.T ONLINE"
 ];
 
-const screens =
-{
-    MAIN:
-    [
-        "TYPE `HELP` TO SEE AVAILABLE COMMANDS"
-    ],
-
-    HELP:
-    [
-        "FILES",
-        "MAP",
-        "BACK"
-    ],
-
-    FILES:
-    [
-        "AUDIO LOGS",
-        "MUSIC",
-        "DOCUMENTS",
-        "BACK"
-    ],
-
-    AUDIO:
-    [
-        "IT_BEGINS.MP3",
-        "DETECTIVE_CAMPBELL.MP3",
-        "GROUP_MEETING.MP3",
-        "BACK"
-    ],
-
-    MUSIC:
-    [
-        "RECOVERED_01.MP3",
-        "RECOVERED_02.MP3",
-        "RECOVERED_03.MP3",
-        "RECOVERED_04.MP3",
-        "BACK"
-    ],
-
-    DOCUMENTS:
-    [
-        "EXPRESS_AND_STAR.PDF",
-        "MAP_SKETCH.JPG",
-        "EVIDENCE_BOARD_04.PDF",
-        "BACK"
-    ],
-
-    MAP:
-    [
-        "MAP SCREEN",
-        "BACK"
-    ],
-
-    PASSWORD:
-    [
-        "BACK",
-        "PLEASE ENTER THE PASSWORD FOR THIS FILE"
-    ]
-};
-
-const commands = 
-{
-    MAIN:
+const files =
+[
     {
-        HELP: "HELP"
+        name: "BBC_NEWS_WEST_MIDLANDS_30_06_2026.MP3",
+        path: "AUDIO/BBC_NEWS_WEST_MIDLANDS_30_06_2026.MP3",
+        password: null
     },
 
-    HELP:
-    {
-        FILES: "FILES",
+        {
+        name: "EXPRESS_AND_STAR_30_06_2026.PDF",
+        path: "DOCUMENTS/EXPRESS_AND_STAR_30_06_2026.PDF",
+        password: "FARCRY5"
     },
 
-    FILES:
     {
-        AUDIO: "AUDIO",
-        MUSIC: "MUSIC",
-        DOCUMENTS: "DOCUMENTS"
+        name: "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3",
+        path: "AUDIO/DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3",
+        password: "THELOST"
+    },
+
+    {
+        name: "MAP_SKETCH_ROUGH.JPG",
+        path: "DOCUMENTS/MAP_SKETCH_ROUGH.JPG",
+        password: "THELOST"
+    },
+
+    {
+        name: "EVIDENCE_BOARD_04.JPG",
+        path: "DOCUMENTS/EVIDENCE_BOARD_04.JPG",
+        password: "LIVERPOOL"
+    },
+
+    {
+        name: "RECOVERED_AUDIO_08.MP3",
+        path: "AUDIO/RECOVERED_AUDIO_08.MP3",
+        password: "LIPA"
+    },
+
+    {
+        name: "EXPLANATION.MP4",
+        path: "VIDEOS/EXPLANATION.MP4",
+        password: "ABBEYROAD"
     }
-}
-
-const unprotectedFiles = 
-{
-    AUDIO:
-    [
-        "IT_BEGINS.MP3"
-    ],
-
-    MUSIC:
-    [
-        "RECOVERED_01.MP3",
-        "RECOVERED_02.MP3",
-        "RECOVERED_03.MP3",
-        "RECOVERED_04.MP3"
-    ],
-}
-
-const protectedFiles = 
-{
-    AUDIO:
-    [
-        "DETECTIVE_CAMPBELL.MP3",
-        "GROUP_MEETING.MP3"
-    ],
-
-    DOCUMENTS:
-    [
-        "EXPRESS_AND_STAR.PDF",
-        "MAP_SKETCH.JPG",
-        "EVIDENCE_BOARD_04.PDF"
-    ]
-}
+];
 
 const passwords = 
 {
-    "EXPRESS_AND_STAR.PDF": "FARCRY5",
+    "EXPRESS_AND_STAR_30_06_2026.MP3": "FARCRY5",
     "MAP_SKETCH.JPG": "THELOST",
-    "EVIDENCE_BOARD_04.PDF": "TOTTENHAM",
-    
-    "DETECTIVE_CAMPBELL.MP3": "PASSWORD",
-    "GROUP_MEETING.MP3": "LIVERPOOL",
-
-    "MAP": "1959"
+    "DETECTIVE_CAMPBELL.MP3": "THELOST",
+    "EVIDENCE_BOARD_04.JPG": "LIVERPOOL",
+    "RECOVERED_AUDIO_08.MP3": "LIPA",
+    "EXPLANATION.MP4": "ABBEYROAD"
 }
-
-let currentScreen = "MAIN";
-let previousScreen = "";
-let selectedFile = "";
-let ignoreInput = false;
 
 const keySound = new Audio ("Sounds/keyboard_click.mp3");
 const startupSound = new Audio ("Sounds/computer_startup.wav");
+
+let selectedFile = null;
+let unlockedFiles = 1;
 
 async function startSystem()
 {
@@ -168,9 +97,48 @@ async function bootSequence()
     document.getElementById("terminal-title").style.display = "flex";
     document.getElementById("terminal-content").style.display = "block";
 
+    let unlockedFiles =
+        parseInt(
+            localStorage.getItem("goat_progress")
+        ) || 1;
+
     showScreen("MAIN");
     startupSound.currentTime = 0;
     startupSound.play();
+}
+
+async function newFileUnlocked(file)
+{
+    clearTerminal();
+    hideTerminalInput(true);
+
+    await typeLine("NEW FILE UNLOCKED...", "terminal-output");
+    await sleep(700);
+    await typeLine(file.name, "terminal-output");
+    await sleep(700);
+    await typeLine("IS NOW ACCESSIBLE...", "terminal-output");
+    await sleep(1000);
+    
+    showScreen("MAIN");
+    hideTerminalInput(false);
+}
+
+async function multipleNewFilesUnlocked()
+{
+    clearTerminal();
+    hideTerminalInput(true);
+
+    await typeLine("NEW FILES UNLOCKED...", "terminal-output");
+    await sleep(700);
+    await typeLine("DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3", "terminal-output");
+    await sleep(400);
+    await typeLine("MAP_SKETCH_ROUGH.JPG", "terminal-output");
+    await sleep(700);
+    await typeLine("ARE NOW ACCESSIBLE...", "terminal-output");
+    await sleep(1000);
+    
+    showScreen("MAIN");
+    hideTerminalInput(false);
 }
 
 async function typeLine(text, elementId)
@@ -208,10 +176,7 @@ terminalInput.addEventListener("keydown", function(event)
 {
     if (event.key === "Enter")
     {
-        if (!ignoreInput)
-        {
-            processCommand(terminalInput.value);
-        }
+        processCommand(terminalInput.value);
 
         terminalInput.value = "";
     }
@@ -226,134 +191,61 @@ function processCommand(command)
         return;
     }
 
-    if (command === "BACK")
+    let showUnknown = true;
+
+    files.forEach((file, index) => {
+        if (index  === unlockedFiles)
+        {
+            if (command === file.password)
+            {
+                if (file.name === "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3")
+                {
+                    unlockedFiles += 2;
+                    showUnknown = false;
+                    multipleNewFilesUnlocked(file, file++);
+                }
+                else
+                {
+                    unlockedFiles++;
+                    showUnknown = false;
+                    
+                    localStorage.setItem(
+                        "goat_progress",
+                        unlockedFiles
+                    );
+                        
+                    newFileUnlocked(file);
+                }
+            }
+
+        }
+    });
+
+    if (showUnknown)
     {
-        back();
-        return;
-    }
-
-    const screenCommands = commands[currentScreen];
-
-    if (screenCommands && screenCommands[command])
-    {
-        showScreen(screenCommands[command]);
-        return;
-    }
-
-    if (protectedFiles[currentScreen]?.includes(command))
-    {
-        previousScreen = currentScreen;
-
-        selectedFile = command;
-
-        showScreen("PASSWORD");
-
-        return;
-    }
-
-    if (unprotectedFiles[currentScreen]?.includes(command))
-    {
-        previousScreen = currentScreen;
-
-        selectedFile = command;
-
-        openFile(selectedFile, true);
-
-        return;
-    }
-
-    if (currentScreen === "PASSWORD")
-    {
-        testPassword(command);
-        return;
-    }
-
-    if (currentScreen === "HELP" && command === "MAP")
-    {
-        selectedFile = "MAP";
-        previousScreen = "HELP";
-
-        showScreen("PASSWORD");
-
-        return;
-    }
-
-    showUnknownCommand();
-}
-
-function back()
-{
-    if (previousScreen != "")
-    {
-        showScreen(previousScreen);
-        previousScreen = "";
-        return;
-    }
-
-    switch (currentScreen)
-    {
-        case "AUDIO":
-        case "DOCUMENTS":
-        case "MUSIC":
-            showScreen("FILES");
-            break;
-
-        case "FILES":
-        case "MAP":
-            showScreen("HELP");
-            break;
-
-        default:
-            showScreen("MAIN");
-            break;
+        showUnknownCommand();
     }
 }
 
 function showUnknownCommand()
 {
-    printWithTimeout("ERROR: UNKNOWN COMMAND", 2500);
+    printWithTimeout("ERROR: INCORRECT PASSWORD", 2500);
 }
 
-async function testPassword(attemptedPassword)
-{
-    if (attemptedPassword === passwords[selectedFile])
-    {
-        await openFile(selectedFile, false);
-    }
-    else
-    {
-        printWithTimeout("INCORRECT PASSWORD", 2500);
-    }
-}
-
-async function openFile(file, unprotectedFile)
+async function openFile(file)
 {
     clearTerminal();
 
     hideTerminalInput(true);
 
-    if (unprotectedFile)
-    {
-        await typeLine("ACCESS GRANTED TO BIRTHDAY_BOY...", "terminal-output")
-        await sleep(700);
-        await typeLine("OPENING FILE...", "terminal-output");
-        await sleep(500);
-    }
-    else
-    {
-        await typeLine("PASSWORD ACCEPTED...", "terminal-output");
-        await sleep(700);
-        await typeLine("ACCESS GRANTED TO BIRTHDAY_BOY...", "terminal-output")
-        await sleep(700);
-        await typeLine("OPENING FILE...", "terminal-output");
-        await sleep(500);
-    }
+    await typeLine("ACCESS GRANTED TO BIRTHDAY_BOY...", "terminal-output")
+    await sleep(700);
+    await typeLine("OPENING FILE...", "terminal-output");
+    await sleep(500);
 
-    openViewer(`${previousScreen}/${file}`, file);
+    openViewer(file.path, file);
 
-    showScreen(previousScreen);
-
-    previousScreen = "";
+    showScreen("MAIN");
 }
 
 function openViewer(filePath, fileName)
@@ -409,12 +301,33 @@ function showScreen(screen)
 {
     clearTerminal();
 
-    currentScreen = screen;
+    const output = document.getElementById("terminal-output");
 
-    for (const line of screens[screen])
-    {
-        print(line);
-    }
+    files.forEach((file, index) => {
+        const button = document.createElement("button");
+
+        if (index >= unlockedFiles)
+        {
+            button.textContent = "[CLASSIFIED]";
+            button.disabled = true;
+            button.classList.add("locked");
+        }
+        else
+        {
+            button.textContent = file.name;
+        }
+
+        button.classList.add("file-button");
+
+        button.addEventListener("click", () =>
+        {
+            selectedFile = file;
+            openFile(file);
+        });
+
+
+        output.appendChild(button);
+    });
 }
 
 function print(text)
