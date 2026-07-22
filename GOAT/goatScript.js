@@ -26,12 +26,6 @@ const files =
     },
 
     {
-        name: "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3",
-        path: "AUDIO/DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3",
-        password: "THE LOST"
-    },
-
-    {
         name: "MAP_SKETCH_ROUGH.JPG",
         path: "DOCUMENTS/MAP_SKETCH_ROUGH.JPG",
         password: "THE LOST"
@@ -60,7 +54,6 @@ const passwords =
 {
     "EXPRESS_AND_STAR.JPG": "FARCRY5",
     "MAP_SKETCH_ROUGH.JPG": "THE LOST",
-    "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3": "THE LOST",
     "EVIDENCE_BOARD_04.JPG": "LIVERPOOL",
     "RECOVERED_AUDIO_08.MP3": "LIPA",
     "EXPLANATION.MP4": "MALIBU"
@@ -117,24 +110,6 @@ async function newFileUnlocked(file)
     await typeLine(file.name, "terminal-output");
     await sleep(700);
     await typeLine("IS NOW ACCESSIBLE...", "terminal-output");
-    await sleep(1000);
-    
-    showScreen("MAIN");
-    hideTerminalInput(false);
-}
-
-async function multipleNewFilesUnlocked()
-{
-    clearTerminal();
-    hideTerminalInput(true);
-
-    await typeLine("NEW FILES UNLOCKED...", "terminal-output");
-    await sleep(700);
-    await typeLine("DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3", "terminal-output");
-    await sleep(400);
-    await typeLine("MAP_SKETCH_ROUGH.JPG", "terminal-output");
-    await sleep(700);
-    await typeLine("ARE NOW ACCESSIBLE...", "terminal-output");
     await sleep(1000);
     
     showScreen("MAIN");
@@ -198,24 +173,16 @@ function processCommand(command)
         {
             if (command === file.password)
             {
-                if (file.name === "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3")
-                {
-                    unlockedFiles += 2;
-                    showUnknown = false;
-                    multipleNewFilesUnlocked(file, file++);
-                }
-                else
-                {
-                    unlockedFiles++;
-                    showUnknown = false;
+
+                unlockedFiles++;
+                showUnknown = false;
+                
+                localStorage.setItem(
+                    "goat_progress",
+                    unlockedFiles
+                );
                     
-                    localStorage.setItem(
-                        "goat_progress",
-                        unlockedFiles
-                    );
-                        
-                    newFileUnlocked(file);
-                }
+                newFileUnlocked(file);
             }
 
         }
@@ -234,6 +201,12 @@ function showUnknownCommand()
 
 async function openFile(file)
 {
+    if (file.name === "EXPLANATION.MP4")
+    {
+        window.open("https://youtu.be/qLJuoGr1CZY", '_blank').focus();
+        return;
+    }
+
     clearTerminal();
 
     hideTerminalInput(true);
@@ -255,7 +228,7 @@ function openViewer(filePath, fileName)
     viewer.style.display = "flex";
     viewer.classList.add("active");
 
-    document.getElementById("file-name").textContent = fileName;
+    document.getElementById("file-name").textContent = fileName.name;
 
     document.getElementById("file-frame").src = filePath;
 }
@@ -374,7 +347,7 @@ async function skipBoot()
 
 document.addEventListener("DOMContentLoaded", () =>
 {
-    if (true)
+    if (false)
     {
         skipBoot();
     }
