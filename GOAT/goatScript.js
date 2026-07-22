@@ -14,27 +14,27 @@ const bootLines =
 const files =
 [
     {
-        name: "BBC_NEWS_WEST_MIDLANDS_30_06_2026.MP3",
-        path: "AUDIO/BBC_NEWS_WEST_MIDLANDS_30_06_2026.MP3",
+        name: "BBC_NEWS_WEST_MIDLANDS.MP3",
+        path: "AUDIO/BBC_NEWS_WEST_MIDLANDS.MP3",
         password: null
     },
 
         {
-        name: "EXPRESS_AND_STAR_30_06_2026.PDF",
-        path: "DOCUMENTS/EXPRESS_AND_STAR_30_06_2026.PDF",
+        name: "EXPRESS_AND_STAR.JPG",
+        path: "DOCUMENTS/EXPRESS_AND_STAR.JPG",
         password: "FARCRY5"
     },
 
     {
         name: "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3",
         path: "AUDIO/DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3",
-        password: "THELOST"
+        password: "THE LOST"
     },
 
     {
         name: "MAP_SKETCH_ROUGH.JPG",
         path: "DOCUMENTS/MAP_SKETCH_ROUGH.JPG",
-        password: "THELOST"
+        password: "THE LOST"
     },
 
     {
@@ -52,18 +52,18 @@ const files =
     {
         name: "EXPLANATION.MP4",
         path: "VIDEOS/EXPLANATION.MP4",
-        password: "ABBEYROAD"
+        password: "MALIBU"
     }
 ];
 
 const passwords = 
 {
-    "EXPRESS_AND_STAR_30_06_2026.MP3": "FARCRY5",
-    "MAP_SKETCH.JPG": "THELOST",
-    "DETECTIVE_CAMPBELL.MP3": "THELOST",
+    "EXPRESS_AND_STAR.JPG": "FARCRY5",
+    "MAP_SKETCH_ROUGH.JPG": "THE LOST",
+    "DETECTIVE_CAMPBELL_INVESTIGATION_0083.MP3": "THE LOST",
     "EVIDENCE_BOARD_04.JPG": "LIVERPOOL",
     "RECOVERED_AUDIO_08.MP3": "LIPA",
-    "EXPLANATION.MP4": "ABBEYROAD"
+    "EXPLANATION.MP4": "MALIBU"
 }
 
 const keySound = new Audio ("Sounds/keyboard_click.mp3");
@@ -374,7 +374,7 @@ async function skipBoot()
 
 document.addEventListener("DOMContentLoaded", () =>
 {
-    if (false)
+    if (true)
     {
         skipBoot();
     }
