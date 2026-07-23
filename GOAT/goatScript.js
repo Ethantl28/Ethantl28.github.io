@@ -16,37 +16,49 @@ const files =
     {
         name: "BBC_NEWS_WEST_MIDLANDS.MP3",
         path: "AUDIO/BBC_NEWS_WEST_MIDLANDS.MP3",
-        password: null
+        password: null,
+        hint: "",
+        hint_shown: true
     },
 
         {
         name: "EXPRESS_AND_STAR.JPG",
         path: "DOCUMENTS/EXPRESS_AND_STAR.JPG",
-        password: "FARCRY5"
+        password: "FARCRY 5",
+        hint: "I WONDER WHAT GAME THAT SONG IS USED IN.",
+        hint_shown: false
     },
 
     {
         name: "MAP_SKETCH_ROUGH.JPG",
         path: "DOCUMENTS/MAP_SKETCH_ROUGH.JPG",
-        password: "THE LOST"
+        password: "THE LOST",
+        hint: "A FAMILIAR NAME PERHAPS",
+        hint_shown: false
     },
 
     {
         name: "EVIDENCE_BOARD_04.JPG",
         path: "DOCUMENTS/EVIDENCE_BOARD_04.JPG",
-        password: "LIVERPOOL"
+        password: "LIVERPOOL",
+        hint: "FOUR MUSICIANS. ONE CITY SEEMED IMPOSSIBLE TO IGNORE.",
+        hint_shown: false
     },
 
     {
         name: "RECOVERED_AUDIO_08.MP3",
         path: "AUDIO/RECOVERED_AUDIO_08.MP3",
-        password: "LIPA"
+        password: "LIPA",
+        hint: "SOME DREAMS BEGIN IN AN OLD GRAMMAR SCHOOL",
+        hint_shown: false
     },
 
     {
         name: "EXPLANATION.MP4",
         path: "VIDEOS/EXPLANATION.MP4",
-        password: "MALIBU"
+        password: "MALIBU",
+        hint: "I WONDER WHAT THE NAME OF THIS SONG IS?",
+        hint_shown: false
     }
 ];
 
@@ -63,7 +75,20 @@ const keySound = new Audio ("Sounds/keyboard_click.mp3");
 const startupSound = new Audio ("Sounds/computer_startup.wav");
 
 let selectedFile = null;
-let unlockedFiles = 1;
+const STORAGE_KEY = "unlockedFiles";
+
+function loadUnlockedFiles()
+{
+    const value = localStorage.getItem(STORAGE_KEY);
+    return value !== null ? parseInt(value, 10) : 1;
+}
+
+function saveUnlockedFiles()
+{
+    localStorage.setItem(STORAGE_KEY, unlockedFiles);
+}
+
+let unlockedFiles = loadUnlockedFiles();
 
 async function startSystem()
 {
@@ -89,11 +114,6 @@ async function bootSequence()
     document.getElementById("boot-screen").style.display = "none";
     document.getElementById("terminal-title").style.display = "flex";
     document.getElementById("terminal-content").style.display = "block";
-
-    let unlockedFiles =
-        parseInt(
-            localStorage.getItem("goat_progress")
-        ) || 1;
 
     showScreen("MAIN");
     startupSound.currentTime = 0;
@@ -157,12 +177,32 @@ terminalInput.addEventListener("keydown", function(event)
     }
 });
 
+function printHint()
+{
+    if (!files[unlockedFiles].hint_shown)
+    {
+        print(files[unlockedFiles].hint);
+        files[unlockedFiles].hint_shown = true;
+    }
+}
+
 function processCommand(command)
 {
     command = command.trim().toUpperCase();
 
+    if (unlockedFiles > 5)
+    {
+        return;
+    }
+
     if (command === "")
     {
+        return;
+    }
+
+    if (command === "HINT")
+    {
+        printHint();
         return;
     }
 
@@ -175,12 +215,8 @@ function processCommand(command)
             {
 
                 unlockedFiles++;
+                saveUnlockedFiles();
                 showUnknown = false;
-                
-                localStorage.setItem(
-                    "goat_progress",
-                    unlockedFiles
-                );
                     
                 newFileUnlocked(file);
             }
@@ -206,6 +242,9 @@ async function openFile(file)
         window.open("https://youtu.be/qLJuoGr1CZY", '_blank').focus();
         return;
     }
+
+    window.open(file.path, '_blank').focus();
+    return;
 
     clearTerminal();
 
@@ -301,6 +340,8 @@ function showScreen(screen)
 
         output.appendChild(button);
     });
+
+    print("TYPE \"HINT\" FOR HELP")
 }
 
 function print(text)
@@ -347,7 +388,7 @@ async function skipBoot()
 
 document.addEventListener("DOMContentLoaded", () =>
 {
-    if (false)
+    if (unlockedFiles > 1)
     {
         skipBoot();
     }
